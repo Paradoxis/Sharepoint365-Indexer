@@ -474,7 +474,7 @@ func (sc *SharePointCrawler) SearchOffice365(query string, offset int64, size in
 
 	accessToken, err := sc.GetAccessToken("https://outlook.office365.com/search")
 	if err != nil {
-		return cursor, fmt.Errorf("failed to retrieve access token")
+		return cursor, fmt.Errorf("failed to retrieve access token: %v", err)
 	}
 
 	req, err := http.NewRequest("POST", "https://outlook.office365.com/searchservice/api/v2/query", nil)
